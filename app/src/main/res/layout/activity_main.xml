@@ -12,15 +12,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
+        android:background="@android:color/transparent"
         android:ems="10"
+        android:focusable="false"
         android:gravity="center"
         android:inputType="text"
         android:text="WakeApp"
+        android:textIsSelectable="true"
         android:textSize="32dp"
         android:textStyle="bold|italic"
-        android:textIsSelectable="true"
-        android:focusable="false"
-        android:background="@android:color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,12 +34,12 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="40dp"
         android:background="@android:color/transparent"
-        android:ems="10"
+        android:ems="15"
+        android:focusable="false"
         android:inputType="textPersonName"
         android:text="Ankunftszeit:"
-        android:textSize="16dp"
         android:textIsSelectable="true"
-        android:focusable="false"
+        android:textSize="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/header" />
 
@@ -48,14 +48,14 @@
         android:id="@+id/inputUhrzeit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="40dp"
         android:ems="10"
         android:gravity="left"
         android:hint="Uhrzeit"
         android:inputType="time"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/header" />
+        app:layout_constraintTop_toBottomOf="@+id/plainTextAnkunftszeit" />
 
     <!-- Text - Zeit zum Fertigmachen -->
     <EditText
@@ -63,57 +63,86 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:background="@android:color/transparent"
-        android:ems="10"
+        android:ems="15"
+        android:focusable="false"
         android:inputType="textPersonName"
         android:text="Benötigte Zeit zum Fertigmachen:"
         android:textIsSelectable="true"
-        android:focusable="false"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/plainTextAnkunftszeit" />
+        app:layout_constraintTop_toBottomOf="@+id/inputUhrzeit" />
 
     <!-- Eingabefeld - Zeit zum Fertigmachen -->
     <EditText
         android:id="@+id/inputZeitZumFertigmachen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="40dp"
         android:ems="10"
         android:gravity="left"
         android:hint="Zeit in Minuten"
         android:inputType="time"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputUhrzeit" />
+        app:layout_constraintTop_toBottomOf="@+id/plainTextZeitZumFertigmachen" />
 
     <!-- Text - Wohnort -->
     <EditText
-        android:id="@+id/plainTextWohnort"
+        android:id="@+id/plainTextFahrtzeit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:background="@android:color/transparent"
-        android:ems="10"
+        android:ems="15"
         android:focusable="false"
         android:inputType="textPersonName"
         android:text="Benötigte Fahrtzeit:"
         android:textIsSelectable="true"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/plainTextZeitZumFertigmachen" />
+        app:layout_constraintTop_toBottomOf="@+id/inputZeitZumFertigmachen" />
 
     <!-- Eingabefeld - Benötigte Fahrtzeit -->
     <EditText
         android:id="@+id/inputFahrtzeit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="40dp"
         android:ems="10"
-        android:inputType="time"
         android:gravity="left"
         android:hint="Zeit in Minuten"
+        android:inputType="time"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputZeitZumFertigmachen" />
+        app:layout_constraintTop_toBottomOf="@+id/plainTextFahrtzeit" />
+
+    <!-- Button - Berechnen -->
+    <Button
+        android:id="@+id/buttonBerechnen"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="400dp"
+        android:layout_marginEnd="30dp"
+        android:text="Berechnen"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header" />
+
+    <!-- Text - Ergebnis -->
+    <EditText
+        android:id="@+id/plainTextErgebnis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/transparent"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Ergebnis"
+        android:textIsSelectable="true"
+        android:focusable="false"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonBerechnen" />
 </androidx.constraintlayout.widget.ConstraintLayout>
