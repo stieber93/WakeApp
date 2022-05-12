@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">WakeAppJSRP</string>
+    <string name="app_name">WakeApp</string>
+    <string name="Time">17:20</string>
+
 </resources>
