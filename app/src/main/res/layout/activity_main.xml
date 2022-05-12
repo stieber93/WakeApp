@@ -4,21 +4,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:accessibilityHeading="false"
-    android:saveEnabled="false"
     tools:context=".MainActivity">
 
+    <!-- Text - Überschrift -->
     <EditText
-        android:id="@+id/editTextTextPersonName"
-        android:layout_width="218dp"
-        android:layout_height="39dp"
+        android:id="@+id/header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:gravity="center"
+        android:inputType="text"
         android:text="WakeApp"
+        android:textSize="32dp"
+        android:textStyle="bold|italic"
+        android:background="@android:color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="64dp"
-        android:editable="false"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Text - Ankunftszeit -->
+    <EditText
+        android:id="@+id/plainTextAnkunftszeit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="60dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Ankunftszeit:"
+        android:textSize="16dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header" />
+
+    <!-- Eingabefeld - Uhrzeit -->
+    <EditText
+        android:id="@+id/inputUhrzeit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="60dp"
+        android:ems="10"
+        android:inputType="time"
+        android:hint="Uhrzeit"
+        app:layout_constraintStart_toEndOf="@+id/plainTextAnkunftszeit"
+        app:layout_constraintTop_toBottomOf="@+id/header" />
 </androidx.constraintlayout.widget.ConstraintLayout>
