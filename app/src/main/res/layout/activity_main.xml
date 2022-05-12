@@ -83,7 +83,8 @@
         android:ems="10"
         android:gravity="left"
         android:hint="Zeit in Minuten"
-        android:inputType="time"
+        android:inputType="number"
+        android:maxLength="3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/plainTextZeitZumFertigmachen" />
 
@@ -113,12 +114,13 @@
         android:ems="10"
         android:gravity="left"
         android:hint="Zeit in Minuten"
-        android:inputType="time"
+        android:inputType="number"
+        android:maxLength="3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/plainTextFahrtzeit" />
 
     <!-- Button - Berechnen -->
-    <Button
+    <Button android:onClick="changeResultTime"
         android:id="@+id/buttonBerechnen"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
