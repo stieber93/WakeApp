@@ -23,9 +23,14 @@ public class MainActivity extends AppCompatActivity {
         String inputUhrzeitValue = inputZeit.getText().toString();
         String inputFahrtzeitValue = inputFahrtzeit.getText().toString();
         String inputZZFValue = inputZZF.getText().toString();
+        int inputHours = Integer.valueOf(inputUhrzeitValue.substring(0,2));
+        int inputMinutes = Integer.valueOf(inputUhrzeitValue.substring(3,5));
+        int tempTime = (inputHours *60)+inputMinutes - Integer.valueOf(inputFahrtzeitValue) - Integer.valueOf(inputZZFValue);
+        String resultTime = +tempTime/60 +":" +tempTime%60;
         Log.d("resultZeit", inputUhrzeitValue);
-        Log.d("resultFahrtzeit", inputFahrtzeitValue);
-        Log.d("resultZZF", inputZZFValue);
+        Log.d("Hours", String.valueOf(inputHours));
+        Log.d("Minutes", String.valueOf(inputMinutes));
+        Log.d("Result", resultTime);
     }
 
 
