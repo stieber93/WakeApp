@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/WakeApp.iml" filepath="$PROJECT_DIR$/.idea/WakeApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/WakeAppJSRP.iml" filepath="$PROJECT_DIR$/.idea/modules/WakeAppJSRP.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/WakeAppJSRP.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/WakeAppJSRP.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/WakeAppJSRP.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/WakeAppJSRP.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/WakeAppJSRP.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/WakeAppJSRP.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/WakeAppJSRP.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/WakeAppJSRP.app.unitTest.iml" />
     </modules>
   </component>
 </project>
