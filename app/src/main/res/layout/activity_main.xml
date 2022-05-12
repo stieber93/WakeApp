@@ -18,6 +18,8 @@
         android:text="WakeApp"
         android:textSize="32dp"
         android:textStyle="bold|italic"
+        android:textIsSelectable="true"
+        android:focusable="false"
         android:background="@android:color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -30,12 +32,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="40dp"
+        android:background="@android:color/transparent"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Ankunftszeit:"
         android:textSize="16dp"
-        android:background="@android:color/transparent"
+        android:textIsSelectable="true"
+        android:focusable="false"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/header" />
 
@@ -44,11 +48,72 @@
         android:id="@+id/inputUhrzeit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="200dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="40dp"
+        android:ems="10"
+        android:gravity="left"
+        android:hint="Uhrzeit"
+        android:inputType="time"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header" />
+
+    <!-- Text - Zeit zum Fertigmachen -->
+    <EditText
+        android:id="@+id/plainTextZeitZumFertigmachen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="50dp"
+        android:background="@android:color/transparent"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Benötigte Zeit zum Fertigmachen:"
+        android:textIsSelectable="true"
+        android:focusable="false"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/plainTextAnkunftszeit" />
+
+    <!-- Eingabefeld - Zeit zum Fertigmachen -->
+    <EditText
+        android:id="@+id/inputZeitZumFertigmachen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="40dp"
+        android:ems="10"
+        android:gravity="left"
+        android:hint="Zeit in Minuten"
+        android:inputType="time"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputUhrzeit" />
+
+    <!-- Text - Wohnort -->
+    <EditText
+        android:id="@+id/plainTextWohnort"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="50dp"
+        android:background="@android:color/transparent"
+        android:ems="10"
+        android:focusable="false"
+        android:inputType="textPersonName"
+        android:text="Benötigte Fahrtzeit:"
+        android:textIsSelectable="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/plainTextZeitZumFertigmachen" />
+
+    <!-- Eingabefeld - Benötigte Fahrtzeit -->
+    <EditText
+        android:id="@+id/inputFahrtzeit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="40dp"
         android:ems="10"
         android:inputType="time"
-        android:hint="Uhrzeit"
-        app:layout_constraintStart_toEndOf="@+id/plainTextAnkunftszeit"
-        app:layout_constraintTop_toBottomOf="@+id/header" />
+        android:gravity="left"
+        android:hint="Zeit in Minuten"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputZeitZumFertigmachen" />
 </androidx.constraintlayout.widget.ConstraintLayout>
