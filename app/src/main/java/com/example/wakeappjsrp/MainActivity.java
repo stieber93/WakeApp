@@ -27,6 +27,13 @@ public class MainActivity extends AppCompatActivity {
         int inputMinutes = Integer.valueOf(inputUhrzeitValue.substring(3,5));
         int tempTime = (inputHours *60)+inputMinutes - Integer.valueOf(inputFahrtzeitValue) - Integer.valueOf(inputZZFValue);
         String resultTime = +tempTime/60 +":" +tempTime%60;
+        if(tempTime < 0){
+            tempTime += (24 *60);
+            resultTime = +tempTime/60 +":" +tempTime%60 + " am Vortag";
+;        }else if (tempTime< -((24*60)+1)){
+            tempTime += (2* 24*60);
+            resultTime = +tempTime/60 +":" +tempTime%60 + " zwei Tage vorher";
+        }
         Log.d("resultZeit", inputUhrzeitValue);
         Log.d("Hours", String.valueOf(inputHours));
         Log.d("Minutes", String.valueOf(inputMinutes));
