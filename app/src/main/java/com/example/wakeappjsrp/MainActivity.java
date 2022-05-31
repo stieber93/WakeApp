@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         btnGet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tvw.setText("Selected Time: "+ eText.getText());
+                tvw.setText("Ausgewählte Zeit: "+ eText.getText());
             }
         });
     }
