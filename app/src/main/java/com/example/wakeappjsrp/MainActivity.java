@@ -1,51 +1,53 @@
 package com.example.wakeappjsrp;
 
+import android.app.TimePickerDialog;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
-import android.util.Log;
+import android.text.InputType;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
-
+import android.widget.TextView;
+import android.widget.TimePicker;
+import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
-
+    TimePickerDialog picker;
+    EditText eText;
+    Button btnGet;
+    TextView tvw;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        tvw=(TextView)findViewById(R.id.textView1);         // Dies ist nur eine Ausgabe als Text nach drücke des Buttons
+        eText=(EditText) findViewById(R.id.inputUhrzeit);  //Hier als ID die Textbox auswählen
+        eText.setInputType(InputType.TYPE_NULL);
+        eText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Calendar cldr = Calendar.getInstance();
+                int hour = cldr.get(Calendar.HOUR_OF_DAY);
+                int minutes = cldr.get(Calendar.MINUTE);
+                // time picker dialog
+                picker = new TimePickerDialog(MainActivity.this,
+                        new TimePickerDialog.OnTimeSetListener() {
+                            @Override
+                            public void onTimeSet(TimePicker tp, int sHour, int sMinute) {
+                                String formattedHour = String.format("%02d", sHour);
+                                String formattedMinute = String.format("%02d", sMinute);
+                                eText.setText(formattedHour + ":" + formattedMinute);
+                            }
+                        }, hour, minutes, true);
+                picker.show();
+            }
+        });
+        btnGet=(Button)findViewById(R.id.button1);            //Dies ist nur für den Zeit ausgeben Button
+        btnGet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tvw.setText("Ausgewählte Zeit: "+ eText.getText());
+            }
+        });
     }
-
-    public void changeResultTime(View view) {
-        EditText inputZeit = (EditText) findViewById(R.id.inputUhrzeit);
-        EditText inputFahrtzeit = (EditText) findViewById(R.id.inputFahrtzeit);
-        EditText inputZZF = (EditText) findViewById(R.id.inputZeitZumFertigmachen);
-        EditText resultField = (EditText) findViewById(R.id.showResult);
-        String inputUhrzeitValue = inputZeit.getText().toString();
-        String inputFahrtzeitValue = inputFahrtzeit.getText().toString();
-        String inputZZFValue = inputZZF.getText().toString();
-        int inputHours = Integer.valueOf(inputUhrzeitValue.substring(0,2));
-        int inputMinutes = Integer.valueOf(inputUhrzeitValue.substring(3,5));
-        int tempTime = (inputHours *60)+inputMinutes - Integer.valueOf(inputFahrtzeitValue) - Integer.valueOf(inputZZFValue);
-        String resultTime ="";
-        if(tempTime > 0) {
-
-            resultTime = +tempTime / 60 + ":" + tempTime % 60;
-        }
-        if(tempTime < 0){
-            tempTime += (24 *60);
-            resultTime = +tempTime/60 +":" +tempTime%60 + " am Vortag";
-;        }
-        if (tempTime<  0){
-            tempTime += (24*60);
-            resultTime = +tempTime/60 +":" +tempTime%60 + " zwei Tage vorher";
-        }
-        //Log.d("resultZeit", inputUhrzeitValue);
-        //Log.d("Hours", String.valueOf(inputHours));
-        //Log.d("Minutes", String.valueOf(inputMinutes));
-        Log.d("Result", resultTime);
-        resultField.setText(resultTime);
-    }
-
-
 }
