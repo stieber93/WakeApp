@@ -20,7 +20,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        tvw=(TextView)findViewById(R.id.textView1);         // Dies ist nur eine Ausgabe als Text nach drücke des Buttons
         eText=(EditText) findViewById(R.id.inputUhrzeit);  //Hier als ID die Textbox auswählen
         eText.setInputType(InputType.TYPE_NULL);
         eText.setOnClickListener(new View.OnClickListener() {
@@ -42,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
                 picker.show();
             }
         });
-        btnGet=(Button)findViewById(R.id.button1);            //Dies ist nur für den Zeit ausgeben Button
         btnGet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
