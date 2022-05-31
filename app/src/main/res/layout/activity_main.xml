@@ -1,61 +1,186 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
-    <!-- Text - Überschrift -->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
 
+    <!-- Text - Überschrift -->
     <EditText
         android:id="@+id/header"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="50dp"
         android:background="@android:color/transparent"
         android:ems="10"
+        android:focusable="false"
         android:gravity="center"
         android:inputType="text"
-        android:minHeight="48dp"
         android:text="WakeApp"
+        android:textIsSelectable="true"
         android:textSize="32dp"
-        android:textStyle="bold|italic" />
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <!-- Text - Ankunftszeit -->
     <EditText
         android:id="@+id/plainTextAnkunftszeit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="40dp"
         android:background="@android:color/transparent"
-        android:ems="10"
+        android:ems="15"
+        android:focusable="false"
         android:inputType="textPersonName"
-        android:minHeight="48dp"
         android:text="Ankunftszeit:"
-        android:textSize="16dp" />
+        android:textIsSelectable="true"
+        android:textSize="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header" />
 
-    <!-- Hier ist das Eingabefeld-->
+    <!-- Eingabefeld - Uhrzeit -->
     <EditText
         android:id="@+id/inputUhrzeit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="200dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="40dp"
         android:ems="10"
+        android:gravity="left"
         android:hint="Uhrzeit"
         android:inputType="time"
-        android:minHeight="48dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/plainTextAnkunftszeit" />
 
-    <Button
-        android:id="@+id/button1"
+    <!-- Text - Zeit zum Fertigmachen -->
+    <EditText
+        android:id="@+id/plainTextZeitZumFertigmachen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/inputUhrzeit"
-        android:layout_marginLeft="100dp"
-        android:text="Zeit Ausgeben" />
-    <TextView
-        android:id="@+id/textView1"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/transparent"
+        android:ems="15"
+        android:focusable="false"
+        android:inputType="textPersonName"
+        android:text="Benötigte Zeit zum Fertigmachen:"
+        android:textIsSelectable="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputUhrzeit" />
+
+    <!-- Eingabefeld - Zeit zum Fertigmachen -->
+    <EditText
+        android:id="@+id/inputZeitZumFertigmachen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/button1"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="10dp"
-        android:textStyle="bold"
-        android:textSize="18dp"/>
-</RelativeLayout>
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="40dp"
+        android:ems="10"
+        android:gravity="left"
+        android:hint="Zeit in Minuten"
+        android:inputType="number"
+        android:maxLength="3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/plainTextZeitZumFertigmachen" />
+
+    <!-- Text - Wohnort -->
+    <EditText
+        android:id="@+id/plainTextFahrtzeit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/transparent"
+        android:ems="15"
+        android:focusable="false"
+        android:inputType="textPersonName"
+        android:text="Benötigte Fahrtzeit:"
+        android:textIsSelectable="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputZeitZumFertigmachen" />
+
+    <!-- Eingabefeld - Benötigte Fahrtzeit -->
+    <EditText
+        android:id="@+id/inputFahrtzeit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="40dp"
+        android:ems="10"
+        android:gravity="left"
+        android:hint="Zeit in Minuten"
+        android:inputType="number"
+        android:maxLength="3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/plainTextFahrtzeit" />
+
+    <!-- Button - Berechnen -->
+    <Button android:onClick="changeResultTime"
+        android:id="@+id/buttonBerechnen"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="400dp"
+        android:layout_marginEnd="30dp"
+        android:text="Berechnen"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header" />
+
+    <!-- Text - Ergebnis -->
+    <EditText
+        android:id="@+id/plainTextErgebnis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/transparent"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Ergebnis"
+        android:textSize="24dp"
+        android:textStyle="bold|italic"
+        android:textIsSelectable="true"
+        android:focusable="false"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonBerechnen" />
+
+    <!-- Text - Weck-Hinweis -->
+    <EditText
+        android:id="@+id/plainTextWeckHinweis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/transparent"
+        android:ems="25"
+        android:inputType="textPersonName"
+        android:text="Sie sollten Ihren Wecker auf die folgende Uhrzeit stellen:"
+        android:textSize="12dp"
+        android:textIsSelectable="true"
+        android:focusable="false"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/plainTextErgebnis" />
+
+    <!-- Text - Berechnete Uhrzeit -->
+    <EditText
+        android:id="@+id/plainTextEndergebnis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="25dp"
+        android:ems="5"
+        android:focusable="false"
+        android:hint="XX:XX Uhr"
+        android:inputType="textPersonName"
+        android:textIsSelectable="true"
+        android:textSize="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/plainTextWeckHinweis" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
