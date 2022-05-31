@@ -34,7 +34,9 @@ public class MainActivity extends AppCompatActivity {
                         new TimePickerDialog.OnTimeSetListener() {
                             @Override
                             public void onTimeSet(TimePicker tp, int sHour, int sMinute) {
-                                eText.setText(sHour + ":" + sMinute);
+                                String formattedHour = String.format("%02d", sHour);
+                                String formattedMinute = String.format("%02d", sMinute);
+                                eText.setText(formattedHour + ":" + formattedMinute);
                             }
                         }, hour, minutes, true);
                 picker.show();
