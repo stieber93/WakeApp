@@ -174,7 +174,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="25dp"
-        android:ems="5"
+        android:ems="12"
         android:focusable="false"
         android:hint="XX:XX Uhr"
         android:inputType="textPersonName"
