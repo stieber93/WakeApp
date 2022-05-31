@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
         EditText inputZeit = (EditText) findViewById(R.id.inputUhrzeit);
         EditText inputFahrtzeit = (EditText) findViewById(R.id.inputFahrtzeit);
         EditText inputZZF = (EditText) findViewById(R.id.inputZeitZumFertigmachen);
+        EditText resultField = (EditText) findViewById(R.id.showResult);
         String inputUhrzeitValue = inputZeit.getText().toString();
         String inputFahrtzeitValue = inputFahrtzeit.getText().toString();
         String inputZZFValue = inputZZF.getText().toString();
@@ -43,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         //Log.d("Hours", String.valueOf(inputHours));
         //Log.d("Minutes", String.valueOf(inputMinutes));
         Log.d("Result", resultTime);
+        resultField.setText(resultTime);
     }
 
 
